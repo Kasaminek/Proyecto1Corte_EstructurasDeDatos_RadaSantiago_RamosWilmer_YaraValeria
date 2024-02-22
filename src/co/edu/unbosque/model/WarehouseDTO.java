@@ -3,7 +3,7 @@ import co.edu.unbosque.util.LinkedList;
 public class WarehouseDTO {
 	
 	private String nameWarehouse;
-	private LinkedList<Package>packages;
+	private LinkedList<Package>packages ;
 
 	public WarehouseDTO() {
 		// TODO Auto-generated constructor stub

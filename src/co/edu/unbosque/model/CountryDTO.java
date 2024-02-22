@@ -3,20 +3,17 @@ package co.edu.unbosque.model;
 public class CountryDTO {
 	
 	private String countryName;
-	private WarehouseDTO ware;
-	
+	private String currency;
 	
 	public CountryDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public CountryDTO(String countryName, WarehouseDTO ware) {
+	public CountryDTO(String countryName, String currency) {
 		super();
 		this.countryName = countryName;
-		this.ware = ware;
+		this.currency = currency;
 	}
-
 
 	public String getCountryName() {
 		return countryName;
@@ -26,18 +23,25 @@ public class CountryDTO {
 		this.countryName = countryName;
 	}
 
-	public WarehouseDTO getWare() {
-		return ware;
+	public String getCurrency() {
+		return currency;
 	}
 
-	public void setWare(WarehouseDTO ware) {
-		this.ware = ware;
+	public void setCurrency(String currency) {
+		this.currency = currency;
 	}
 
 	@Override
 	public String toString() {
-		return "CountryDTO [countryName=" + countryName + ", ware=" + ware + "]";
+		return "CountryDTO [countryName=" + countryName + ", currency=" + currency + "]";
 	}
+	
+	
+
+
+	
+
+
 	
 	
 	

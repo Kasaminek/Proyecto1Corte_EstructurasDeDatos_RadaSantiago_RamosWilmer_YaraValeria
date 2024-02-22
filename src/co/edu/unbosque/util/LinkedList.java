@@ -1,5 +1,7 @@
 package co.edu.unbosque.util;
 
+
+
 public class LinkedList<E> {
 	protected Node<E> first;
 
@@ -112,46 +114,42 @@ public class LinkedList<E> {
 
 	
 	public Node<E> get(E info) {
-	    return getRe(first, info);
-	}
-
-	public Node<E> getRe(Node<E> currentNode, E info) {
 		Node<E> targetNode = null;
-	    if (currentNode == null) {
-	        return targetNode; 
-	    }
-	    if (currentNode !=null && currentNode.getInfo().equals(info)) {
-	    	targetNode = currentNode;
-	        return targetNode; 
-	    }
-	    return getRe(currentNode.getNext(), info); 
+		Node<E> currentNode = this.first;
+
+		while (currentNode != null && !currentNode.getInfo().equals(info)) {
+			currentNode = currentNode.getNext();
+
+		}
+
+		if (currentNode != null) {
+			targetNode = currentNode;
+		}
+
+		return targetNode;
 	}
+	
+	
 
 
 
 	
-	public Node<E> get(int index){
-		return getRec(index, first);
-	}
-	
-	public Node<E> getRec(int index, Node<E> currentNode){
+	public Node<E> get(int index) {
 		Node<E> targetNode = null;
-		int count=0;
-		   if (currentNode == null) {
-		        return targetNode; 
-		    }
-		   
-		   if(currentNode != null && count < index) {
-			   count++;
-		   }
-		   
-		   if(index==count) {
-			   targetNode = currentNode;
-		        return targetNode; 
-		   }
-		  
-		   return getRec(index, currentNode.getNext());
-		
+		Node<E> currentNode = this.first;
+
+		int counter = 0;
+		while (currentNode != null && counter < index) {
+			currentNode = currentNode.getNext();
+			counter++;
+		}
+
+		if (currentNode != null) {
+			targetNode = currentNode;
+		}
+
+		return targetNode;
+
 	}
 	Node<E> currentNode = this.first;
 	public int numberOfOcurrences(E info, Node<E> currentNode) {
