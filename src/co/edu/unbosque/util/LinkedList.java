@@ -1,8 +1,12 @@
 package co.edu.unbosque.util;
 
+import java.io.Serializable;
 
-
-public class LinkedList<E> {
+public class LinkedList<E> implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected Node<E> first;
 
 	public LinkedList() {

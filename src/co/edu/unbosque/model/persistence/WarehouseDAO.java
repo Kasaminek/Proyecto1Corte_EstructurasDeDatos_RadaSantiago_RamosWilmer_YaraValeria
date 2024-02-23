@@ -10,27 +10,17 @@ public class WarehouseDAO implements CRUDOperations {
 	
 	public WarehouseDAO() {
 		packages = new LinkedList<>();
-		loadSerializable();
+		;
 	}
 	
-	@SuppressWarnings("unchecked")
-	private void loadSerializable() {
-		if (FileHandler.serializableOpenAndReadFile(SERIAL_FILENAME) != null) {
-			Object temp = FileHandler.serializableOpenAndReadFile(SERIAL_FILENAME);
-			packages = (LinkedList<PackageDTO>) temp;
-		} else {
-			packages = new LinkedList<>();
-		}
-	}
+
 	
-	public void writeSerializable() {
-		FileHandler.serializableOpenAndWriteFile(SERIAL_FILENAME, packages);
-	}
+	
 
 	@Override
 	public void create(Object o) {
 		packages.addLast((PackageDTO) o);
-		writeSerializable();
+		
 	}
 	
 	@Override
@@ -45,7 +35,7 @@ public class WarehouseDAO implements CRUDOperations {
 		if(packages.contains(delete)) {
 		packages.remove(delete);	
 		}
-        writeSerializable();
+       
 		return false;
 	}
 
