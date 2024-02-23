@@ -23,7 +23,6 @@ public class MainWindow extends JFrame {
 		createPanel = new CreatePanel();
 		selectPanel = new SelectPanel();
 		
-
 		countryPanel.setVisible(true);
 		mainPanel.setVisible(false);
 		selectPanel.setVisible(true);

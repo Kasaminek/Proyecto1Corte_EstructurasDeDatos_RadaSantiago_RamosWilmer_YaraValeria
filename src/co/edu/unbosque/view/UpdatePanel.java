@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class MainPanel extends JPanel {
+public class UpdatePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JLabel backgroundLabel;
 	private JLabel selectedCountry;
@@ -27,12 +27,12 @@ public class MainPanel extends JPanel {
 	private JButton btnExit;
 	private final String url = "assets/";
 
-	public MainPanel() {
+	public UpdatePanel() {
 		setBounds(0, -5, 1280, 720);
 		setBackground(Color.BLACK);
 		backgroundLabel = new JLabel();
 		backgroundLabel.setBounds(0, 0, 1280, 720);
-		backgroundSelect = new ImageIcon(url + "CRUDS.png");
+		backgroundSelect = new ImageIcon(url + "Create.png");
 		backgroundSelect.setImage(backgroundSelect.getImage().getScaledInstance(backgroundLabel.getWidth(),
 				backgroundLabel.getHeight(), Image.SCALE_SMOOTH));
 		backgroundLabel.setIcon(backgroundSelect);
@@ -46,40 +46,40 @@ public class MainPanel extends JPanel {
 		}
 
 		selectedCountry = new JLabel("Sucursal");
-		selectedCountry.setBounds(240, 70, 770, 50);
+		selectedCountry.setBounds(230, 70, 770, 50);
 		selectedCountry.setForeground(new Color(41, 104, 200));
 		selectedCountry.setHorizontalAlignment(JLabel.CENTER);
 		selectedCountry.setFont(customFont.deriveFont(Font.PLAIN, 55));
 
-		btnCreate = new JButton("");
-		btnCreate.setBounds(550, 222, 185, 56);
+		btnCreate = new JButton("Create");
+		btnCreate.setBounds(200, 200, 200, 50);
 		btnCreate.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnCreate.setContentAreaFilled(false);
+		btnCreate.setBackground(Color.WHITE);
 
-		btnSearch = new JButton("");
-		btnSearch.setBounds(552, 290, 180, 56);
+		btnSearch = new JButton("Search");
+		btnSearch.setBounds(200, 270, 200, 50);
 		btnSearch.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnSearch.setContentAreaFilled(false);
+		btnSearch.setBackground(Color.WHITE);
 
 		id = new JTextField();
 		id.setHorizontalAlignment(JTextField.CENTER);
-		id.setBounds(550, 360, 150, 56);
+		id.setBounds(210, 396, 150, 50);
 		id.setEditable(true);
 		id.setEnabled(true);
-		id.setOpaque(true);
+		id.setOpaque(false);
 		id.setFont(customFont.deriveFont(Font.PLAIN, 22));
-		id.setBackground(Color.white);
+		id.setBackground(new Color(61, 146, 171));
 		id.setBorder(BorderFactory.createEmptyBorder());
 
-		btnUpdate = new JButton("");
-		btnUpdate.setBounds(550, 430, 180, 56);
+		btnUpdate = new JButton("Update");
+		btnUpdate.setBounds(200, 340, 200, 50);
 		btnUpdate.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnUpdate.setContentAreaFilled(false);
+		btnUpdate.setBackground(Color.WHITE);
 
-		btnDelete = new JButton("");
-		btnDelete.setBounds(550, 500, 180, 56);
+		btnDelete = new JButton("Delete");
+		btnDelete.setBounds(200, 410, 200, 50);
 		btnDelete.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnDelete.setContentAreaFilled(false);
+		btnDelete.setBackground(Color.WHITE);
 
 		btnExit = new JButton("", null);
 		btnExit.setBounds(72, 592, 131, 56);
