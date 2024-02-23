@@ -7,6 +7,7 @@ public class MainWindow extends JFrame {
 	private CountryPanel countryPanel;
 	private MainPanel mainPanel;
 	private CreatePanel createPanel;
+	private SelectPanel selectPanel;
 	private String countryName;
 
 	public MainWindow() {
@@ -20,13 +21,17 @@ public class MainWindow extends JFrame {
 		countryPanel = new CountryPanel();
 		mainPanel = new MainPanel();
 		createPanel = new CreatePanel();
+		selectPanel = new SelectPanel();
+		
 
 		countryPanel.setVisible(true);
 		mainPanel.setVisible(false);
+		selectPanel.setVisible(true);
 		createPanel.setVisible(false);
-
+		
 		add(countryPanel);
 		add(mainPanel);
+		add(selectPanel);
 		add(createPanel);
 	}
 
@@ -52,6 +57,14 @@ public class MainWindow extends JFrame {
 
 	public void setCreatePanel(CreatePanel createPanel) {
 		this.createPanel = createPanel;
+	}
+	
+	public SelectPanel getSelectPanel() {
+		return selectPanel;
+	}
+	
+	public void setSelectPanel(SelectPanel selectPanel) {
+		this.selectPanel = selectPanel;
 	}
 
 	public String getCountryName() {

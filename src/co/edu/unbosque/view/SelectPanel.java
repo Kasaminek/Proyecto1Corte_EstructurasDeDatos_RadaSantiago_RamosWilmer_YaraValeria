@@ -1,20 +1,20 @@
 package co.edu.unbosque.view;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class CreatePanel extends JPanel {
-
-    private static final long serialVersionUID = 1L;
+public class SelectPanel extends JPanel {
+	
+	private static final long serialVersionUID = 1L;
     private JLabel backgroundLabel;
     private JLabel selectedCountry;
     private ImageIcon backgroundSelect;
@@ -22,12 +22,20 @@ public class CreatePanel extends JPanel {
     private JButton btnRead;
     private JButton btnUpdate;
     private JButton btnDelete;
+    private CardLayout cardLayout;
+    private JPanel cardPanel;
     private final String url = "assets/";
     private String dataF;
-
-    public CreatePanel() {
+    
+    public SelectPanel() {
         setBounds(0, -5, 1280, 720);
         setBackground(Color.BLACK);
+        cardLayout = new CardLayout();
+        cardPanel = new JPanel(cardLayout);
+        cardPanel.add(createCard("Create"), "Create");
+        cardPanel.add(createCard("Read"), "Read");
+        cardPanel.add(createCard("Update"), "Update");
+        cardPanel.add(createCard("Delete"), "Delete");
         backgroundLabel = new JLabel();
         backgroundLabel.setBounds(0, 0, 1280, 720);
         backgroundSelect = new ImageIcon(url + "Country.png");
@@ -76,6 +84,20 @@ public class CreatePanel extends JPanel {
         backgroundLabel.add(btnUpdate);
         backgroundLabel.add(btnDelete);
     }
+    
+    private JPanel createCard(String operation) {
+        JPanel card = new JPanel();
+        card.setBackground(Color.WHITE);
+
+        JLabel label = new JLabel(operation);
+        label.setFont(new Font("Arial", Font.PLAIN, 24));
+        card.add(label);
+        return card;
+    }
+
+    public void showCard(String cardName) {
+        cardLayout.show(cardPanel, cardName);  // Muestra la "carta" especificada
+    }
 
     public JButton getBtnCreate() {
         return btnCreate;
@@ -100,4 +122,5 @@ public class CreatePanel extends JPanel {
     public void setDataF(String dataF) {
         this.dataF = dataF;
     }
+
 }

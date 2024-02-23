@@ -8,4 +8,8 @@ public class MainPanel extends JPanel {
 	private final String url = "assets/";
 	private JLabel backgroundLabel;
 	
+	public MainPanel() {
+		
+	}
+	
 }
