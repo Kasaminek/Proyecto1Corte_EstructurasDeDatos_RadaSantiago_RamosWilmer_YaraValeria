@@ -10,7 +10,6 @@ import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-
 public class FileHandler {
 	private static Scanner fileReader;
 	private static PrintWriter fileWriter;
@@ -23,10 +22,8 @@ public class FileHandler {
 	private static ObjectOutputStream oos;
 	private static String url = "src/co/edu/unbosque/model/persistence/";
 
-
 	public FileHandler() {
 	}
-
 
 	public static Object serializableOpenAndReadFile(String fileName) {
 		try {
@@ -57,7 +54,6 @@ public class FileHandler {
 		return content;
 	}
 
-
 	public static void serializableOpenAndWriteFile(String fileName, Object content) {
 		try {
 			fos = new FileOutputStream(new File(url + fileName));
@@ -80,7 +76,6 @@ public class FileHandler {
 		}
 	}
 
-
 	public static String openAndReadFile(String fileName) {
 		myFile = new File(url + fileName);
 		try {
@@ -99,7 +94,6 @@ public class FileHandler {
 		}
 		return content;
 	}
-
 
 	public static void openAndWriteFile(String fileName, String content) {
 		myFile = new File(url + fileName);

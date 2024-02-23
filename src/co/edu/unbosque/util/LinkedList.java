@@ -2,10 +2,7 @@ package co.edu.unbosque.util;
 
 import java.io.Serializable;
 
-public class LinkedList<E> implements Serializable{
-	/**
-	 * 
-	 */
+public class LinkedList<E> implements Serializable {
 	private static final long serialVersionUID = 1L;
 	protected Node<E> first;
 
@@ -36,7 +33,6 @@ public class LinkedList<E> implements Serializable{
 			Node<E> newNode = new Node<E>(info);
 			newNode.setNext(previous.getNext());
 			previous.setNext(newNode);
-
 		}
 	}
 
@@ -50,33 +46,29 @@ public class LinkedList<E> implements Serializable{
 	}
 
 	public Node<E> getLastNode() {
-		
 		return getLastNodeR(first);
 	}
 
 	public Node<E> getLastNodeR(Node<E> current) {
-		
-		 if (current == null || current.getNext() == null) {
-		        return current;
-		    }
-
-		 return getLastNodeR(current.getNext());
+		if (current == null || current.getNext() == null) {
+			return current;
+		}
+		return getLastNodeR(current.getNext());
 	}
 
 	public int indexOf(E info) {
-	    return indexOfRecursive(first, info, 0);
+		return indexOfRecursive(first, info, 0);
 	}
 
 	public int indexOfRecursive(Node<E> currentNode, E info, int infoPosition) {
-	    if (currentNode == null) {
-	        return -1;
-	    }
-	    if (currentNode.getInfo().equals(info)) {
-	        return infoPosition; 
-	    }
-	    return indexOfRecursive(currentNode.getNext(), info, infoPosition + 1); 
+		if (currentNode == null) {
+			return -1;
+		}
+		if (currentNode.getInfo().equals(info)) {
+			return infoPosition;
+		}
+		return indexOfRecursive(currentNode.getNext(), info, infoPosition + 1);
 	}
-
 
 	public E extract() {
 		E data = null;
@@ -89,25 +81,20 @@ public class LinkedList<E> implements Serializable{
 
 	public E extract(Node<E> previous) {
 		E data = null;
-
 		if (previous != null && previous.getNext() != null) {
 			data = previous.getNext().getInfo();
 			previous.setNext(previous.getNext().getNext());
-
 		}
 		return data;
-
 	}
 
 	public int size() {
 		int size = 0;
-
 		Node<E> current = this.first;
 		while (current != null) {
 			size++;
 			current = current.getNext();
 		}
-
 		return size;
 	}
 
@@ -115,56 +102,43 @@ public class LinkedList<E> implements Serializable{
 		return this.toString();
 	}
 
-
-	
 	public Node<E> get(E info) {
 		Node<E> targetNode = null;
 		Node<E> currentNode = this.first;
-
 		while (currentNode != null && !currentNode.getInfo().equals(info)) {
 			currentNode = currentNode.getNext();
-
 		}
-
 		if (currentNode != null) {
 			targetNode = currentNode;
 		}
-
 		return targetNode;
 	}
-	
-	
 
-
-
-	
 	public Node<E> get(int index) {
 		Node<E> targetNode = null;
 		Node<E> currentNode = this.first;
-
 		int counter = 0;
 		while (currentNode != null && counter < index) {
 			currentNode = currentNode.getNext();
 			counter++;
 		}
-
 		if (currentNode != null) {
 			targetNode = currentNode;
 		}
-
 		return targetNode;
 
 	}
+
 	Node<E> currentNode = this.first;
+
 	public int numberOfOcurrences(E info, Node<E> currentNode) {
 		int count = 0;
-		
 		if (currentNode != null) {
 			if (currentNode.getInfo().equals(info)) {
 				count++;
 			}
 		}
-		if(currentNode == null) {
+		if (currentNode == null) {
 			return count;
 		}
 		return numberOfOcurrences(info, currentNode.getNext());
@@ -185,76 +159,72 @@ public class LinkedList<E> implements Serializable{
 		}
 		return info;
 	}
-	
+
 	public String print(int position) {
-	    StringBuilder sb = new StringBuilder();
-	    printR(first, position, sb);
-	    return sb.toString();
+		StringBuilder sb = new StringBuilder();
+		printR(first, position, sb);
+		return sb.toString();
 	}
 
 	public void printR(Node<E> currentNode, int position, StringBuilder sb) {
-	    if (currentNode == null || position <= 0) {
-	        return; 
-	    }
-	    if (position == 1) {
-	        sb.append(currentNode.getInfo().toString());
-	        if (currentNode.getNext() != null) {
-	            sb.append("->");
-	        }
-	    }
-	    printR(currentNode.getNext(), position - 1, sb);
+		if (currentNode == null || position <= 0) {
+			return;
+		}
+		if (position == 1) {
+			sb.append(currentNode.getInfo().toString());
+			if (currentNode.getNext() != null) {
+				sb.append("->");
+			}
+		}
+		printR(currentNode.getNext(), position - 1, sb);
 	}
 
 	public String toString() {
-	    return toStringR(first);
+		return toStringR(first);
 	}
 
 	public String toStringR(Node<E> currentNode) {
 		String textList = "";
-	    if (currentNode == null) {
-	        return textList;
-	    }
-	    String textList1 = currentNode.getInfo().toString();
-	    if (currentNode.getNext() != null) {
-	        textList1 += "->" + "\n";
-	    }
-	    return textList1 + toStringR(currentNode.getNext());
+		if (currentNode == null) {
+			return textList;
+		}
+		String textList1 = currentNode.getInfo().toString();
+		if (currentNode.getNext() != null) {
+			textList1 += "->" + "\n";
+		}
+		return textList1 + toStringR(currentNode.getNext());
 	}
-	
+
 	public boolean contains(Object o) {
 		return containsR(o, first);
 	}
-	
-	public boolean containsR(Object o, Node<E> currentNode ) {
+
+	public boolean containsR(Object o, Node<E> currentNode) {
 		if (currentNode == null) {
-	        return false;
-	    }
-		
-		if(currentNode.getInfo().equals(o)) {
+			return false;
+		}
+		if (currentNode.getInfo().equals(o)) {
 			return true;
 		}
-		
 		return containsR(o, currentNode.getNext());
 	}
-	
+
 	public boolean remove(E info) {
-	    return removeR(first, null, info);
+		return removeR(first, null, info);
 	}
 
 	private boolean removeR(Node<E> currentNode, Node<E> previousNode, E info) {
-	    if (currentNode == null) {
-	        return false; 
-	    }
-
-	    if (currentNode.getInfo().equals(info)) {
-	        if (previousNode == null) {
-	            first = currentNode.getNext(); 
-	        } else {
-	            previousNode.setNext(currentNode.getNext()); 
-	        }
-	        return true; 
-	    }
-
-	    return removeR(currentNode.getNext(), currentNode, info); 
+		if (currentNode == null) {
+			return false;
+		}
+		if (currentNode.getInfo().equals(info)) {
+			if (previousNode == null) {
+				first = currentNode.getNext();
+			} else {
+				previousNode.setNext(currentNode.getNext());
+			}
+			return true;
+		}
+		return removeR(currentNode.getNext(), currentNode, info);
 	}
 }

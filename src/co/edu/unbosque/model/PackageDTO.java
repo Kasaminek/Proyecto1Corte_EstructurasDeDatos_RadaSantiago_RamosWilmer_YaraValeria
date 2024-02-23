@@ -1,13 +1,12 @@
 package co.edu.unbosque.model;
 
 public class PackageDTO {
-	
 	private long serialNumber;
 	private String packageContent;
 	private String issuerName;
 	private String receiverName;
 	private int weight;
-	
+
 	public PackageDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -63,10 +62,7 @@ public class PackageDTO {
 
 	@Override
 	public String toString() {
-		return "PackageDTO [serialNumber=" + serialNumber + ", packageContent=" + packageContent + ", issuerName="
-				+ issuerName + ", receiverName=" + receiverName + ", weight=" + weight + "]";
+		return "PackageDTO [serialNumber= " + serialNumber + ", packageContent= " + packageContent + ", issuerName= "
+				+ issuerName + ", receiverName= " + receiverName + ", weight= " + weight + "]";
 	}
-	
-	
-
 }

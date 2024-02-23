@@ -1,10 +1,9 @@
 package co.edu.unbosque.model;
 
 public class CountryDTO {
-	
 	private String countryName;
 	private String currency;
-	
+
 	public CountryDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -33,18 +32,6 @@ public class CountryDTO {
 
 	@Override
 	public String toString() {
-		return "CountryDTO [countryName=" + countryName + ", currency=" + currency + "]";
+		return "CountryDTO [countryName= " + countryName + ", currency= " + currency + "]";
 	}
-	
-	
-
-
-	
-
-
-	
-	
-	
-	
-
 }

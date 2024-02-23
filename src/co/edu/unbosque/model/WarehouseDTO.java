@@ -1,9 +1,10 @@
 package co.edu.unbosque.model;
+
 import co.edu.unbosque.util.LinkedList;
+
 public class WarehouseDTO {
-	
 	private String nameWarehouse;
-	private LinkedList<Package>packages ;
+	private LinkedList<Package> packages;
 
 	public WarehouseDTO() {
 		// TODO Auto-generated constructor stub
@@ -30,11 +31,4 @@ public class WarehouseDTO {
 	public void setPackages(LinkedList<Package> packages) {
 		this.packages = packages;
 	}
-	
-	
-	
-	
-	
-	
 }
-

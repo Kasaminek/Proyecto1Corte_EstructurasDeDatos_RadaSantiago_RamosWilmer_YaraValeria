@@ -2,15 +2,11 @@ package co.edu.unbosque.util;
 
 import java.io.Serializable;
 
-public class Node<E> implements Serializable{
-	
-	/**
-	 * 
-	 */
+public class Node<E> implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private E info;
 	private Node<E> next;
-	
+
 	public Node() {
 		// TODO Auto-generated constructor stub
 	}
@@ -22,7 +18,7 @@ public class Node<E> implements Serializable{
 	}
 
 	public Node(E info) {
-		this(info,null);
+		this(info, null);
 	}
 
 	public E getInfo() {
@@ -40,15 +36,13 @@ public class Node<E> implements Serializable{
 	public void setNext(Node<E> next) {
 		this.next = next;
 	}
-	
+
 	@Override
 	public String toString() {
-		
-		if(info!= null) {
+		if (info != null) {
 			return info.toString();
-		}else {
+		} else {
 			return null;
 		}
 	}
-
 }

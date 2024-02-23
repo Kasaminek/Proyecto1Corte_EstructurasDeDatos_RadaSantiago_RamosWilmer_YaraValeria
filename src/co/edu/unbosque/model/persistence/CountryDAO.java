@@ -5,7 +5,6 @@ import co.edu.unbosque.util.LinkedList;
 import co.edu.unbosque.util.Node;
 
 public class CountryDAO implements CRUDOperations {
-
 	private LinkedList<CountryDTO> countrys;
 
 	public CountryDAO() {
@@ -15,7 +14,6 @@ public class CountryDAO implements CRUDOperations {
 	@Override
 	public void create(Object o) {
 		countrys.addLast((CountryDTO) o);
-
 	}
 
 	@Override
@@ -23,15 +21,13 @@ public class CountryDAO implements CRUDOperations {
 		if (index < 0 || index >= countrys.size()) {
 			return false;
 		}
-
 		Node<CountryDTO> delete = countrys.get(index);
-		if (delete != null ) {
+		if (delete != null) {
 			countrys.remove(delete.getInfo());
 			return true;
 		} else {
 			return false;
 		}
-
 	}
 
 	@Override
@@ -58,7 +54,5 @@ public class CountryDAO implements CRUDOperations {
 		} else {
 			return false;
 		}
-
 	}
-
 }
