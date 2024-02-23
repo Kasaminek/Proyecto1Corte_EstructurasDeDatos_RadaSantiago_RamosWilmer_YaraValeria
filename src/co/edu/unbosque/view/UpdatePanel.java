@@ -18,21 +18,22 @@ public class UpdatePanel extends JPanel {
 	private JLabel backgroundLabel;
 	private JLabel selectedCountry;
 	private ImageIcon backgroundSelect;
-	private JButton btnCreate;
-	private JButton btnSearch;
+	private JTextField idSerialNumber;
+	private JTextField idContentType;
 	private JTextField id;
-	private JButton btnUpdate;
-	private JButton btnDelete;
+	private JTextField idIssuerName;
+	private JTextField idReceiverName;
 	private JButton btnBack;
 	private JButton btnExit;
 	private final String url = "assets/";
+	private JButton btnUpdate;
 
 	public UpdatePanel() {
 		setBounds(0, -5, 1280, 720);
 		setBackground(Color.BLACK);
 		backgroundLabel = new JLabel();
 		backgroundLabel.setBounds(0, 0, 1280, 720);
-		backgroundSelect = new ImageIcon(url + "Create.png");
+		backgroundSelect = new ImageIcon(url + "Update.png");
 		backgroundSelect.setImage(backgroundSelect.getImage().getScaledInstance(backgroundLabel.getWidth(),
 				backgroundLabel.getHeight(), Image.SCALE_SMOOTH));
 		backgroundLabel.setIcon(backgroundSelect);
@@ -51,19 +52,27 @@ public class UpdatePanel extends JPanel {
 		selectedCountry.setHorizontalAlignment(JLabel.CENTER);
 		selectedCountry.setFont(customFont.deriveFont(Font.PLAIN, 55));
 
-		btnCreate = new JButton("Create");
-		btnCreate.setBounds(200, 200, 200, 50);
-		btnCreate.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnCreate.setBackground(Color.WHITE);
+		idSerialNumber = new JTextField();
+		idSerialNumber.setEditable(true);
+		idSerialNumber.setEnabled(true);
+		idSerialNumber.setOpaque(false);
+		idSerialNumber.setBounds(585, 225, 330, 50);
+		idSerialNumber.setFont(new Font("Arial", Font.PLAIN, 20));
+		idSerialNumber.setBackground(Color.WHITE);
+		idSerialNumber.setBorder(BorderFactory.createEmptyBorder());
 
-		btnSearch = new JButton("Search");
-		btnSearch.setBounds(200, 270, 200, 50);
-		btnSearch.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnSearch.setBackground(Color.WHITE);
+		idContentType = new JTextField();
+		idContentType.setEditable(true);
+		idContentType.setEnabled(true);
+		idContentType.setOpaque(true);
+		idContentType.setBounds(615, 295, 325, 50);
+		idContentType.setFont(new Font("Arial", Font.PLAIN, 20));
+		idContentType.setBackground(Color.WHITE);
+		idContentType.setBorder(BorderFactory.createEmptyBorder());
 
 		id = new JTextField();
 		id.setHorizontalAlignment(JTextField.CENTER);
-		id.setBounds(210, 396, 150, 50);
+		id.setBounds(555, 365, 150, 50);
 		id.setEditable(true);
 		id.setEnabled(true);
 		id.setOpaque(false);
@@ -71,15 +80,22 @@ public class UpdatePanel extends JPanel {
 		id.setBackground(new Color(61, 146, 171));
 		id.setBorder(BorderFactory.createEmptyBorder());
 
-		btnUpdate = new JButton("Update");
-		btnUpdate.setBounds(200, 340, 200, 50);
-		btnUpdate.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnUpdate.setBackground(Color.WHITE);
+		idIssuerName = new JTextField();
+		idIssuerName.setEditable(true);
+		idIssuerName.setEnabled(true);
+		idIssuerName.setOpaque(true);
+		idIssuerName.setBounds(606, 433, 325, 50);
+		idIssuerName.setFont(new Font("Arial", Font.PLAIN, 20));
+		idIssuerName.setBackground(Color.WHITE);
+		idIssuerName.setBorder(BorderFactory.createEmptyBorder());
 
-		btnDelete = new JButton("Delete");
-		btnDelete.setBounds(200, 410, 200, 50);
-		btnDelete.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnDelete.setBackground(Color.WHITE);
+		idReceiverName = new JTextField();
+		idReceiverName.setBounds(555, 503, 320, 50);
+		idReceiverName.setEditable(true);
+		idReceiverName.setEnabled(true);
+		idReceiverName.setOpaque(true);
+		idReceiverName.setFont(new Font("Arial", Font.PLAIN, 20));
+		idReceiverName.setBackground(Color.WHITE);
 
 		btnExit = new JButton("", null);
 		btnExit.setBounds(72, 592, 131, 56);
@@ -92,14 +108,22 @@ public class UpdatePanel extends JPanel {
 		btnBack.setContentAreaFilled(false);
 		btnBack.setBorderPainted(true);
 		btnBack.setToolTipText("Se volverá a la selección de país.");
+		
+		btnUpdate = new JButton();
+		btnBack.setBounds(575, 592, 131, 56);
+		btnBack.setContentAreaFilled(false);
+		btnBack.setBorderPainted(true);
+		btnBack.setToolTipText("Se actualizara el objeto seleccionado anteriormente.");
+		
+		
 
 		add(backgroundLabel);
 		backgroundLabel.add(selectedCountry);
-		backgroundLabel.add(btnCreate);
-		backgroundLabel.add(btnSearch);
+		backgroundLabel.add(idSerialNumber);
+		backgroundLabel.add(idContentType);
 		backgroundLabel.add(id);
-		backgroundLabel.add(btnUpdate);
-		backgroundLabel.add(btnDelete);
+		backgroundLabel.add(idIssuerName);
+		backgroundLabel.add(idReceiverName);
 		backgroundLabel.add(btnExit);
 		backgroundLabel.add(btnBack);
 	}
@@ -128,20 +152,20 @@ public class UpdatePanel extends JPanel {
 		this.backgroundSelect = backgroundSelect;
 	}
 
-	public JButton getBtnCreate() {
-		return btnCreate;
+	public JTextField getIdSerialNumber() {
+		return idSerialNumber;
 	}
 
-	public void setBtnCreate(JButton btnCreate) {
-		this.btnCreate = btnCreate;
+	public void setIdSerialNumber(JTextField idSerialNumber) {
+		this.idSerialNumber = idSerialNumber;
 	}
 
-	public JButton getBtnSearch() {
-		return btnSearch;
+	public JTextField getIdContentType() {
+		return idContentType;
 	}
 
-	public void setBtnSearch(JButton btnSearch) {
-		this.btnSearch = btnSearch;
+	public void setIdContentType(JTextField idContentType) {
+		this.idContentType = idContentType;
 	}
 
 	public JTextField getId() {
@@ -152,20 +176,20 @@ public class UpdatePanel extends JPanel {
 		this.id = id;
 	}
 
-	public JButton getBtnUpdate() {
-		return btnUpdate;
+	public JTextField getIdIssuerName() {
+		return idIssuerName;
 	}
 
-	public void setBtnUpdate(JButton btnUpdate) {
-		this.btnUpdate = btnUpdate;
+	public void setIdIssuerName(JTextField idIssuerName) {
+		this.idIssuerName = idIssuerName;
 	}
 
-	public JButton getBtnDelete() {
-		return btnDelete;
+	public JTextField getIdReceiverName() {
+		return idReceiverName;
 	}
 
-	public void setBtnDelete(JButton btnDelete) {
-		this.btnDelete = btnDelete;
+	public void setIdReceiverName(JTextField idReceiverName) {
+		this.idReceiverName = idReceiverName;
 	}
 
 	public JButton getBtnBack() {

@@ -9,6 +9,7 @@ public class MainWindow extends JFrame {
 	private CreatePanel createPanel;
 	private SelectPanel selectPanel;
 	private String countryName;
+	private UpdatePanel updatePanel;
 
 	public MainWindow() {
 		setBounds(0, 0, 1280, 750);
@@ -22,16 +23,19 @@ public class MainWindow extends JFrame {
 		mainPanel = new MainPanel();
 		createPanel = new CreatePanel();
 		selectPanel = new SelectPanel();
+		updatePanel = new UpdatePanel();
 		
-		countryPanel.setVisible(true);
+		countryPanel.setVisible(false);
 		mainPanel.setVisible(false);
-		selectPanel.setVisible(true);
+		selectPanel.setVisible(false);
 		createPanel.setVisible(false);
+		updatePanel.setVisible(true);
 		
 		add(countryPanel);
 		add(mainPanel);
 		add(selectPanel);
 		add(createPanel);
+		add(updatePanel);
 	}
 
 	public CountryPanel getCountryPanel() {
