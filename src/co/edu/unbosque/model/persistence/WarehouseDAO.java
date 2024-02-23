@@ -1,25 +1,38 @@
 package co.edu.unbosque.model.persistence;
 
-
 import co.edu.unbosque.model.PackageDTO;
 import co.edu.unbosque.util.LinkedList;
-import co.edu.unbosque.util.Node;
 
 public class WarehouseDAO implements CRUDOperations {
 	
 	private LinkedList<PackageDTO> packages;
+	private final String SERIAL_FILENAME = "apuestas.dat";
 	
 	public WarehouseDAO() {
 		packages = new LinkedList<>();
+		loadSerializable();
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void loadSerializable() {
+		if (FileHandler.serializableOpenAndReadFile(SERIAL_FILENAME) != null) {
+			Object temp = FileHandler.serializableOpenAndReadFile(SERIAL_FILENAME);
+			packages = (LinkedList<PackageDTO>) temp;
+		} else {
+			packages = new LinkedList<>();
+		}
+	}
+	
+	public void writeSerializable() {
+		FileHandler.serializableOpenAndWriteFile(SERIAL_FILENAME, packages);
 	}
 
 	@Override
 	public void create(Object o) {
 		packages.addLast((PackageDTO) o);
-		
+		writeSerializable();
 	}
-
-
+	
 	@Override
 	public boolean delete(int index) {
 		
@@ -32,8 +45,8 @@ public class WarehouseDAO implements CRUDOperations {
 		if(packages.contains(delete)) {
 		packages.remove(delete);	
 		}
+        writeSerializable();
 		return false;
-		
 	}
 
 	public LinkedList<PackageDTO> getPackages() {
